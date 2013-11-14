@@ -1,11 +1,5 @@
 <html>
     <head>
-        <style>
-            canvas { border: 2px solid black; }
-        </style>
-    </head>
-    <body>
-        <canvas id="canvas"></canvas>
         <script src="lib/neon.js" type="text/javascript"></script>
         <script src="lib/entities/entity.js" type="text/javascript"></script>
         <script src="lib/entities/circle.js" type="text/javascript"></script>
@@ -17,8 +11,21 @@
         <script src="lib/player.js" type="text/javascript"></script>
         <script src="lib/timeLapseSupport.js" type="text/javascript"></script>
         <script src="lib/game.js" type="text/javascript"></script>
+        <style>
+            canvas { border: 2px solid black; }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+
         <script type="text/javascript">
-            var game = new Game();
+            var game = new Game({
+                playerSpeed : 5,
+                dashSpeed : 2,
+                dashDuration : 50,
+                dashCooldown : 100,
+                playerActionCooldown : 40
+            });
             game.run();
         </script>
     </body>
