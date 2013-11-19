@@ -1,7 +1,7 @@
 <html>
     <head>
         <script src="lib/vendor/gamepad.js" type="text/javascript"></script>
-        
+
         <script src="lib/vendor/neon.js" type="text/javascript"></script>
         <script src="lib/vendor/NodeSupport.js" type="text/javascript"></script>
         <script src="lib/vendor/CustomEvent.js" type="text/javascript"></script>
@@ -34,6 +34,21 @@
         <div id="controls"></div>
 
         <script type="text/javascript">
+
+            var levelConfig = {
+                enemies : [
+                    ['CIR', 600, 200, 30],
+                    ['ROT', 2,
+                        ['TRI', 400, 300, 30]],
+                    ['SWI', 2, 180, 90,
+                        ['REC', 800, 100, 20, 100]],
+                    ['ROT', 2,
+                        ['SWI', 4, 180, 0,
+                            ['ROT', 2,
+                                ['REC', 1000, 200, 40, 40]]]]
+                ]
+            }
+
             var game = new Game({
                 playerSpeed : 5,
                 dashSpeed : 2,
@@ -42,6 +57,7 @@
                 playerActionCooldown : 40,
                 scrollSpeed : 1
             });
+            game.loadLevel(levelConfig);
             game.run();
 
             window.game = game;
@@ -86,6 +102,8 @@
                 step : 1,
                 value : 100
             });
+
+
 
 
           </script>
