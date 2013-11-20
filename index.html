@@ -111,7 +111,6 @@
             levelEditor.render($('#controls'));
 
             levelEditor.bind('level:load:success', function(event) {
-                console.log("YES!!")
                game.restart(event.level);
             });
             levelEditor.load('default.json');
