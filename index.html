@@ -49,14 +49,15 @@
                 ]
             }
 
-            var game = new Game({
-                playerSpeed : 5,
-                dashSpeed : 2,
-                dashDuration : 50,
-                dashCooldown : 100,
-                playerActionCooldown : 40,
-                scrollSpeed : 1
-            });
+            var initialConfig = {
+                scrollSpeed : 7,
+                playerSpeed : 18,
+                dashSpeed : 10,
+                dashDuration : 20,
+                dashCooldown : 10,
+                playerActionCooldown : 20
+            };
+            var game = new Game(initialConfig);
             game.loadLevel(levelConfig);
             game.run();
 
@@ -69,42 +70,39 @@
             };
 
             createSliderControl('scrollSpeed', {
-                min : 1,
-                max : 10,
-                step : 0.1,
-                value : 1
+                min : 3,
+                max : 30,
+                step : 0.5,
+                value : initialConfig.scrollSpeed
             });
 
             createSliderControl('playerSpeed', {
-                min : 1,
-                max : 15,
-                step : 1,
-                value : 5
+                min : 15,
+                max : 30,
+                step : 0.5,
+                value : initialConfig.playerSpeed
             });
 
             createSliderControl('dashSpeed', {
                 min : 1,
                 max : 10,
                 step : 1,
-                value : 2
+                value : initialConfig.dashSpeed
             });
 
             createSliderControl('dashDuration', {
                 min : 30,
                 max : 100,
                 step : 1,
-                value : 50
+                value : initialConfig.dashDuration
             });
 
             createSliderControl('dashCooldown', {
                 min : 50,
                 max : 200,
                 step : 1,
-                value : 100
+                value : initialConfig.dashCooldown
             });
-
-
-
 
           </script>
     </body>
