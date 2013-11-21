@@ -11,6 +11,7 @@
 
         <script src="lib/vendor/jquery-1.9.1.js" type="text/javascript"></script>
 
+        <script src="lib/util.js" type="text/javascript"></script>
         <script src="lib/geometrySupport.js" type="text/javascript"></script>
         <script src="lib/entities/entity.js" type="text/javascript"></script>
         <script src="lib/entities/circle.js" type="text/javascript"></script>
@@ -105,16 +106,27 @@
                 value : initialConfig.dashCooldown
             });
 
-            var levelEditor = new LevelEditor({
-                level : levelConfig
-            });
+            var levelEditor = new LevelEditor();
 
             levelEditor.render($('#controls'));
 
             levelEditor.bind('level:load:success', function(event) {
                game.restart(event.level);
             });
-            levelEditor.load('default.json');
+
+            var urlParams = Util.getUrlParams();
+            var level = 'default.json';
+            if(urlParams.level) {
+                level = urlParams.level.replace(/\/$/, ''); // Redirection from
+                                                            // simpleHTTP server
+            }
+            levelEditor.load(level);
+
+            game.bind('game:lose', function() {
+                console.log("LOLOLOLOL");
+                game.restart();
+            });
+
           </script>
     </body>
 </html>
