@@ -20,6 +20,7 @@
         <script src="lib/behaviors/behavior.js" type="text/javascript"></script>
         <script src="lib/behaviors/swinger.js" type="text/javascript"></script>
         <script src="lib/behaviors/rotator.js" type="text/javascript"></script>
+        <script src="lib/behaviors/extensor.js" type="text/javascript"></script>
         <script src="lib/player.js" type="text/javascript"></script>
         <script src="lib/timeLapseSupport.js" type="text/javascript"></script>
         <script src="lib/game.js" type="text/javascript"></script>
@@ -37,19 +38,7 @@
         <div id="controls"></div>
 
         <script type="text/javascript">
-            var levelConfig = {
-                enemies : [
-                    ['CIR', 600, 200, 30],
-                    ['ROT', 2,
-                        ['TRI', 400, 300, 30]],
-                    ['SWI', 2, 180, 90,
-                        ['REC', 800, 100, 20, 100]],
-                    ['ROT', 2,
-                        ['SWI', 4, 180, 0,
-                            ['ROT', 2,
-                                ['REC', 1000, 200, 40, 40]]]]
-                ]
-            }
+            var levelConfig = { enemies : [] };
 
             var initialConfig = {
                 scrollSpeed : 7,
