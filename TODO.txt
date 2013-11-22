@@ -1,3 +1,6 @@
 TODO
 
 - Fix bugs of entity collissions. Check http://content.gpwiki.org/index.php/Polygon_Collision
+
+    - Bug for backwards collission detection is because is not
+      entering into soft collide?
