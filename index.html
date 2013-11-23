@@ -125,11 +125,12 @@
             levelEditor.render($('#controls'));
 
             levelEditor.bind('level:load:success', function(event) {
+                console.log("Data loaded:", event.level);
                 game.load(event.level);
             });
 
             var urlParams = Util.getUrlParams();
-            var level = 'default.json';
+            var level = 'circles.js';
             if(urlParams.level) {
                 level = urlParams.level.replace(/\/$/, ''); // Redirection from
                                                             // simpleHTTP server
@@ -139,6 +140,16 @@
             game.bind('game:lose', function() {
                 game.clear();
                 levelEditor.load(level);
+            });
+
+            var levels = [
+                'default.json',
+                'stair.json'
+            ];
+            game.bind('game:tick', function(data) {
+                if(data.tick % 120 == 0) {
+                    levelEditor.load(levels[Math.floor(Math.random() * levels.length)])
+                }
             });
 
           </script>
