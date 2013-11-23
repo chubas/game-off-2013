@@ -100,7 +100,7 @@
             levelEditor.render($('#controls'));
 
             levelEditor.bind('level:load:success', function(event) {
-               game.restart(event.level);
+                game.restart(event.level);
             });
 
             var urlParams = Util.getUrlParams();
@@ -112,7 +112,7 @@
             levelEditor.load(level);
 
             game.bind('game:lose', function() {
-                game.restart();
+                levelEditor.load(level);
             });
 
           </script>
