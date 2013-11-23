@@ -74,7 +74,7 @@
                 playerActionCooldown : 20
             };
             var game = new Game(initialConfig);
-            game.loadLevel(levelConfig);
+            game.load(levelConfig);
             game.run();
 
             window.game = game;
@@ -125,7 +125,7 @@
             levelEditor.render($('#controls'));
 
             levelEditor.bind('level:load:success', function(event) {
-                game.restart(event.level);
+                game.load(event.level);
             });
 
             var urlParams = Util.getUrlParams();
@@ -137,6 +137,7 @@
             levelEditor.load(level);
 
             game.bind('game:lose', function() {
+                game.clear();
                 levelEditor.load(level);
             });
 
