@@ -1,0 +1,30 @@
+MOVEMENT MECHANICS
+
+Note: each mechanic should be tested in a separate git branch, for experimenting. Only the general changes go in master
+
+The mechanic possibilities in general are:
+
+- Player - ACTION button. The action button makes the player perform a little dash. This means that the background objects move faster momentarily. (Is looks more like a dash in time rather than a dash in space. Maybe use it for the unifying theme).
+
+- Player - SWITCH button. The switch button makes the player switch colors. The color switch follows a pattern (which allows the design of puzzles that require looping). There is a cooldown timer that prevents the player to loop fast enough (visually it should be an indicator of the cooldown, it can be a gradual color change on the player). This timer is a config variable and can be set to no cooldown at all.
+
+Possibilities:
+
+    - The player is invulnerable to the objects of its same color ALWAYS
+    - The player is invulnerable to the objects of its same color ONLY WHEN DASHING
+    - The player kills the objects of its same color when dashing
+
+    --- Chain reaction branch
+        - The dead enemies turn to black or a neutral color, and form masses. The masses leave bonuses to pick up. The game objective would be to score the most bonuses before dying, or dying n times
+
+        - The dead enemies turn into masses of the color of the original enemy that was destroyed, and disappearing after some time, and score bonus points. The objective of the game would be having to choose always the correct color that leads to the recollection of the most bonus points.
+
+    -- Evade branch
+
+        - The player dies on contact with any solid color enemy. Dashing onto an enemy of the same color "disarms" it momentarily. This is, it reduces its size, becomes gray (maybe apply some shading to show it goes to another layer), and gradually recovers its original size. When it comes back, it is harmful again. This leads to the design of some interesting puzzles, that play with the notion that some sections are designed for you to time well your dashes and choose carefully what to dash.
+
+        - Dashing only makes the player invulnerable for that moment, and the objective is to survive the longest. Puzzles are also in the form of some objectives requires the player not dashing, or dashing in the proper position.
+
+        - In the evade branches the objective would be like in hexagon to score with timer, like in RUA, or to simply timer, like in Hexagon
+
+
