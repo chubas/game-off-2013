@@ -5,7 +5,7 @@
             blockSpacing = 10,
             swingerHeight = 50,
             segments = 17,
-            snakeSpacing = 100;
+            snakeSpacing = 150;
 
         var createSnake = function(coord) {
             var snakeBlocks = [];
@@ -43,7 +43,11 @@
         var x = 800;
         var nextX = x + (segments * (blockWidth + blockSpacing) + snakeSpacing);
         var snakesCoords = [
-            [x, 100], [x, 400], [nextX, 250], [nextX, 0], [nextX, 500]
+            [x, 100],
+            [x, 400],
+            [nextX, 250],
+            [nextX, -swingerHeight / 2],
+            [nextX, 500 + (swingerHeight / 2)]
         ];
         snakesCoords.forEach(function(pair) {
             totalEntities = totalEntities.concat(createSnake(pair));
