@@ -63,6 +63,7 @@
         <div id="controls"></div>
 
         <script type="text/javascript">
+            window.DEBUG = true;
             var levelConfig = { enemies : [] };
 
             var initialConfig = {
@@ -130,7 +131,7 @@
             });
 
             var urlParams = Util.getUrlParams();
-            var level = 'circles.js';
+            var level = 'demo.js';
             if(urlParams.level) {
                 level = urlParams.level.replace(/\/$/, ''); // Redirection from
                                                             // simpleHTTP server
@@ -144,12 +145,13 @@
 
             var levels = [
                 'default.json',
-                'stair.json'
+                'stair.json',
+                'circles.js'
             ];
             game.bind('game:tick', function(data) {
-                if(data.tick % 120 == 0) {
-                    levelEditor.load(levels[Math.floor(Math.random() * levels.length)])
-                }
+                // if(data.tick % 120 == 0) {
+                //     levelEditor.load(levels[Math.floor(Math.random() * levels.length)])
+                // }
             });
 
           </script>
