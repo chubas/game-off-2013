@@ -1,6 +1,8 @@
 ({
     enemies : (function() {
         var totalEntities = [];
+
+        /******** SNAAAKESS!!! **********/
         var blockWidth = 20,
             blockSpacing = 10,
             swingerHeight = 50,
@@ -52,6 +54,8 @@
         snakesCoords.forEach(function(pair) {
             totalEntities = totalEntities.concat(createSnake(pair));
         });
+        /*******/
         return totalEntities;
+
     })()
 })
