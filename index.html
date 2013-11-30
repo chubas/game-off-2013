@@ -174,35 +174,25 @@
             //     level = urlParams.level.replace(/\/$/, ''); // Redirection from
             //                                                 // simpleHTTP server
             // }
+            var levels = {};
+            levels[1] = 'nothing_to_fear/motif.js';
+            levels[57] = 'nothing_to_fear/motif_square.js';
+            levels[57 * 2] = 'nothing_to_fear/motif_square.js';
+            console.log("Levels", levels);
+            // 100 : 'demo.json',
+            // 200 : 'nothing_to_fear.js'
 
-            var loadHandler = function(event) {
-                var trackLevelConfig = {
-                    levels : {
-                        50 : 'default.json',
-                        // 100 : 'demo.json',
-                        // 200 : 'nothing_to_fear.js'
-                    },
-                    game : game,
-                    levelEditor : levelEditor
-                };
+            var trackLevelConfig = {
+                levels : levels,
+                game : game,
+                levelEditor : levelEditor,
+                song : "/music/dexter_britain-nothing_to_fear.mp3"
 
-                TrackLevel.build(trackLevelConfig, function(trackLevel) {
-                    console.log("Track is ready!", trackLevel);
-                    var instance = createjs.Sound.play("bgMusic", 'none', 2000);  // play using id.  Could also use full sourcepath or event.src.
-                    window.bgMusic = instance;
-                });
+            };
 
-                // instance.addEventListener("complete", createjs.proxy(function(){}, this));
-                // instance.volume = 0.5;
-
-                /**** LOAD LEVEL UNTIL MUSIC IS LOADED ***/
-                // We need to do some refactoring to how assets are loaded...
-                // levelEditor.load(level);
-            }
-            createjs.Sound.addEventListener("fileload", createjs.proxy(loadHandler, this));
-            createjs.Sound.registerSound("/music/dexter_britain-nothing_to_fear.mp3", "bgMusic");
-
-
+            TrackLevel.build(trackLevelConfig, function(trackLevel) {
+                console.log("Track is ready!", trackLevel);
+            });
 
             game.bind('game:lose', function() {
                 console.log("LOST!")
