@@ -27,6 +27,7 @@
         <script src="lib/behaviors/pulsator.js" type="text/javascript"></script>
         <script src="lib/behaviors/projectile.js" type="text/javascript"></script>
         <script src="lib/player.js" type="text/javascript"></script>
+        <script src="lib/trackLevel.js" type="text/javascript"></script>
         <script src="lib/timeLapseSupport.js" type="text/javascript"></script>
         <script src="lib/game.js" type="text/javascript"></script>
 
@@ -161,29 +162,42 @@
 
             levelEditor.render($('#controls'));
 
-            levelEditor.bind('level:load:success', function(event) {
-                console.log("Data loaded:", event.level);
-                game.load(event.level);
-            });
+            // levelEditor.bind('level:load:success', function(event) {
+            //     console.log("Data loaded:", event.level);
+            //     game.load(event.level);
+            // });
 
-            var urlParams = Util.getUrlParams();
-            var level = 'nothing_to_fear.js';
+            // var urlParams = Util.getUrlParams();
+            // var level = 'nothing_to_fear.js';
             // var level = 'default.json';
-            if(urlParams.level) {
-                level = urlParams.level.replace(/\/$/, ''); // Redirection from
-                                                            // simpleHTTP server
-            }
+            // if(urlParams.level) {
+            //     level = urlParams.level.replace(/\/$/, ''); // Redirection from
+            //                                                 // simpleHTTP server
+            // }
 
             var loadHandler = function(event) {
-                // var instance = createjs.Sound.play("bgMusic", 'none', 2000);  // play using id.  Could also use full sourcepath or event.src.
-                // window.bgMusic = instance;
+                var trackLevelConfig = {
+                    levels : {
+                        50 : 'default.json',
+                        // 100 : 'demo.json',
+                        // 200 : 'nothing_to_fear.js'
+                    },
+                    game : game,
+                    levelEditor : levelEditor
+                };
+
+                TrackLevel.build(trackLevelConfig, function(trackLevel) {
+                    console.log("Track is ready!", trackLevel);
+                    var instance = createjs.Sound.play("bgMusic", 'none', 2000);  // play using id.  Could also use full sourcepath or event.src.
+                    window.bgMusic = instance;
+                });
 
                 // instance.addEventListener("complete", createjs.proxy(function(){}, this));
                 // instance.volume = 0.5;
 
                 /**** LOAD LEVEL UNTIL MUSIC IS LOADED ***/
                 // We need to do some refactoring to how assets are loaded...
-                levelEditor.load(level);
+                // levelEditor.load(level);
             }
             createjs.Sound.addEventListener("fileload", createjs.proxy(loadHandler, this));
             createjs.Sound.registerSound("/music/dexter_britain-nothing_to_fear.mp3", "bgMusic");
@@ -191,6 +205,7 @@
 
 
             game.bind('game:lose', function() {
+                console.log("LOST!")
                 game.clear();
                 levelEditor.load(level);
             });
