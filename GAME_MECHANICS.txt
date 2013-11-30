@@ -8,6 +8,10 @@ The mechanic possibilities in general are:
 
 - Player - SWITCH button. The switch button makes the player switch colors. The color switch follows a pattern (which allows the design of puzzles that require looping). There is a cooldown timer that prevents the player to loop fast enough (visually it should be an indicator of the cooldown, it can be a gradual color change on the player). This timer is a config variable and can be set to no cooldown at all.
 
+- Music - The game obeys a song as the level, rhythm games a la Soundodger. The
+puzzles are patterns that can be then recognizable by the player, based on shape,
+color AND rhythm
+
 Possibilities:
 
     - The player is invulnerable to the objects of its same color ALWAYS
@@ -27,4 +31,48 @@ Possibilities:
 
         - In the evade branches the objective would be like in hexagon to score with timer, like in RUA, or to simply timer, like in Hexagon
 
+    - Zen mode
+        - The player never dies, and the objective is just to collect points until
+        the level, or the song ends, or maybe indefinitely (and don't collect
+        score, this would be less of a game than a conceptual experiment)
 
+    - Free form vs fixed branches
+        Free form is the player doesn't have a dash, but free movement on the
+        screen is allowed. Fixed form is the most likely idea, and involves the player always being one side of the screen, like traditional runners or
+        the original Bit.trip
+
+    - Music controls
+        If the game allows for music, allow movement controls also control
+        playback, like pause, slowdown, and rewind. (dubstep in soundodger
+        was mindblowing btw)
+=== UPDATE 30 Nov
+
+Mechanics decided:
+
+The game will be a single mode, no zen.
+There are two enemy categories: normal and damaging enemies.
+Normal enemies are colored by one of four color.
+Damaging enemies are colored distinctively, or have some special characteristic.
+The player dies when it collides with a damaging object
+The primary objective of the game is to collect the most points, so the score
+    needs to be prominent.
+The secondary objective of the game is to survive, as means to get the most
+    points. This conflict is the main mechanic in the game, to decide whether
+    to try risky maneuvers or play safe while collecting little score.
+On collision with a normal enemy of the same faction, the player scores bonus
+    points
+There is no penalty for colliding with an enemy of different faction, but there
+    is no bonus points. So enemies can be "missed"
+The player is awarded some continuous bonus points for surviving, less rewarding
+    than collecting bonuses. (This may change)
+The player can form chains, that have a cooldown period. The chain is broken
+    when the cooldown period expires. while collecting enemies, the cooldown
+    timer increases. So it is possible to keep permanent chain state by keeping
+    the cooldown increasing. The chain state is resetted when the player
+    collides with an enemy or when the cooldown naturally expires
+There will be a background music, and the level design would be based around
+    the rhythm (right now only by approximation, proper level editing tools
+    needed)
+The enemies will use combination between them in number, grouping, color and
+    movement to form a variety of more complex structures based on simple
+    enemies.
