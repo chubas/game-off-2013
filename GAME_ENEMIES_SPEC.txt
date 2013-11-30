@@ -1,0 +1,8 @@
+CIRCLE: x, y, radius, relativeSpeed(def=1), faction, damaging(def=false)
+TRIANGLE: x, y, radius, relativeSpeed(def=1), faction, angle(def=0)
+RECTANGLE: x, y, width, height, relativeSpeed(def=1), faction, faction, angle(def=0)
+ROTATOR: speed(def=1), target
+SWINGER: speed(def=1), radius, angle(def=0), initialPosition(def=0), target
+EXTENSOR: radius, angle(def=0), target
+PULSATOR: speed(def=1), minRadius, maxRadius, initialPosition(def=0), target
+PROJECTILE: speed(def=0), angle(def=0), target
