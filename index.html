@@ -61,11 +61,26 @@
             .slider {
               float: left;
             }
+            #chain-container {
+                position: absolute;
+                width : 500px;
+            }
+            #chain {
+                height: 30px;
+                background-color: blue;
+                position: absolute;
+                width: 500px;
+                top: 470px;
+                left: 500px;
+            }
         </style>
     </head>
     <body>
         <div id="score-container">
-          <div id="score" style="position:absolute; top:0; right:0">0</div>
+          <div id="score">0</div>
+        </div>
+        <div id="chain-container">
+          <div id="chain"></div>
         </div>
         <canvas id="canvas"></canvas>
         <div id="controls"></div>
