@@ -8,6 +8,11 @@ to score bonus points, while moving in a musically designed level.
 For the competition only one level could be made, but all the level design tools are done so more
 songs are expected to be added.
 
+## Running the game
+You'll need a simple server for running the game, a simple `python -m HTTSimpleServer` is enough.
+Open the index.html file to start playing
+The game was only tested in Chrome, sorry :(
+
 ## Controls
 
 Up and down for moving. Right for dashing. Left for *changing* color.

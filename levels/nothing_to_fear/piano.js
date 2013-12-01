@@ -67,7 +67,6 @@
                 )
             );
         }
-        console.log("PIANO LOADED", totalEntities);
         return totalEntities;
 
     })()
