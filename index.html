@@ -99,7 +99,7 @@
         <div id="controls"></div>
 
         <script type="text/javascript">
-            window.DEBUG = true;
+            window.DEBUG = false;
 
             var initialConfig = {
                 scrollSpeed : 7,
@@ -116,9 +116,12 @@
             window.game = game;
 
             var createSliderControl = function(target, settings) {
-                (new Controls.Slider(settings)).
-                    bindValue(game.settings, target).
-                    render($('#controls'));
+                var control = (new Controls.Slider(settings)).
+                    bindValue(game.settings, target);
+                if(!window.DEBUG) {
+                    control.element.hide();
+                }
+                control.render($('#controls'));
             };
 
             createSliderControl('scrollSpeed', {
@@ -157,6 +160,9 @@
             });
 
             var levelEditor = new LevelEditor();
+            if(!window.DEBUG) {
+                levelEditor.element.hide();
+            }
 
             levelEditor.render($('#controls'));
 
