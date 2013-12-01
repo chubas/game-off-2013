@@ -1,5 +1,5 @@
 CIRCLE: x, y, radius, relativeSpeed(def=1), faction, damaging(def=false)
-TRIANGLE: x, y, radius, relativeSpeed(def=1), faction, angle(def=0), damaging(def=false)
+TRIANGLE: x, y, radius, angle(def=0), relativeSpeed(def=1), faction, damaging(def=false)
 RECTANGLE: x, y, width, height, relativeSpeed(def=1), faction, faction, angle(def=0), damaging(def=false)
 ROTATOR: speed(def=1), target
 SWINGER: speed(def=1), radius, angle(def=0), initialPosition(def=0), target

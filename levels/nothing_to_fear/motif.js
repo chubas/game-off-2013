@@ -20,12 +20,9 @@
                 var index = reverse ? 3 - i : i;
                 wave.push([
                     "CIR",
-                    // "REC",
                     initialX + (i * (beat * speed)),
                     ((game_h / 4) * index) + (game_h / 8),
-                    // width,
                     (game_h / 8) - padding,
-                    // (game_h / 4) - (2 * padding),
                     speed,
                     i
                 ]);
@@ -35,21 +32,11 @@
         /*******/
 
         var startX = 970;
-        var i;
-        var motiffLoop = function(initialBeat) {
-            var i = initialBeat;
-            for(; i < initialBeat + 4; i++) {
-                totalEntities = totalEntities.concat(
-                    motiff(startX + (4 * i * beat * motiffSpeed), i % 2 !== 0)
-                );
-            }
-            // for(; i < initialBeat + 8; i++) {
-            //     totalEntities = totalEntities.concat(
-            //         motiff(startX + (4 * i * beat * motiffSpeed), i % 4 < 2)
-            //     );
-            // }
+        for(i = 0; i < 4; i++) {
+            totalEntities = totalEntities.concat(
+                motiff(startX + (4 * i * beat * motiffSpeed), i % 2 !== 0)
+            );
         }
-        motiffLoop(0);
         return totalEntities;
 
     })()

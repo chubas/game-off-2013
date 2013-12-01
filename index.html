@@ -100,7 +100,6 @@
 
         <script type="text/javascript">
             window.DEBUG = true;
-            var levelConfig = { enemies : [] };
 
             var initialConfig = {
                 scrollSpeed : 7,
@@ -112,7 +111,6 @@
             };
             var game = new Game(initialConfig);
 
-            game.load(levelConfig);
             game.run();
 
             window.game = game;
@@ -175,9 +173,27 @@
             //                                                 // simpleHTTP server
             // }
             var levels = {};
+            var whole = 58;
             levels[1] = 'nothing_to_fear/motif.js';
-            levels[57] = 'nothing_to_fear/motif_square.js';
-            levels[57 * 2] = 'nothing_to_fear/motif_square.js';
+            levels[2] = 'nothing_to_fear/drums.js'
+            levels[whole * 4] = 'nothing_to_fear/motif_rev.js';
+
+            // Start drums
+            levels[whole * 8] = 'nothing_to_fear/motif.js';
+            levels[whole * 12] = 'nothing_to_fear/motif_rev.js';
+
+            // TODO: FIXME:
+            // Didn't realize levels can't start simultaneously if they are keys
+            // in the hash. Add 1 for now
+            levels[whole * 8 + 1] = 'nothing_to_fear/drums.js';
+
+            // Starts piano 16
+            // levels[whole * 16] = 'nothing_to_fear/motif.js';
+            levels[whole * 16 + 1] = 'nothing_to_fear/drums.js';
+            // levels[whole * 20] = 'nothing_to_fear/motif_rev.js';
+            // levels[whole * 16 - 1] = 'nothing_to_fear/piano.js'
+
+            // levels[57 * 2] = 'nothing_to_fear/motif.js';
             console.log("Levels", levels);
             // 100 : 'demo.json',
             // 200 : 'nothing_to_fear.js'
@@ -187,7 +203,6 @@
                 game : game,
                 levelEditor : levelEditor,
                 song : "/music/dexter_britain-nothing_to_fear.mp3"
-
             };
 
             TrackLevel.build(trackLevelConfig, function(trackLevel) {
@@ -200,11 +215,11 @@
                 levelEditor.load(level);
             });
 
-            var levels = [
-                'default.json',
-                'stair.json',
-                'circles.js'
-            ];
+            // var levels = [
+            //     'default.json',
+            //     'stair.json',
+            //     'circles.js'
+            // ];
             game.bind('game:tick', function(data) {
                 // if(data.tick % 120 == 0) {
                 //     levelEditor.load(levels[Math.floor(Math.random() * levels.length)])
