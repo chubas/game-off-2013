@@ -3,21 +3,38 @@
         var totalEntities = [];
 
         // Start making these variable, they will change
+
         var game_w = 1000;
         var game_h = 500;
 
-        var beat = 100; // Distance equals to a beat in the song
+        var beat = 235; // Distance equals to a beat in the song
 
-        var motiffSpeed = 6;
+        var startX = 1400;
+        var motiff = function(initialX, reverse) {
+            var construct = [];
+            var radius = 40
+            var angles = reverse ? [180, 135, 90] : [180, 225, 270];
+            var y = reverse ? 20 : game_h - 20;
+            angles.forEach(function(angle, index) {
+                if(index === 3) {
+                    totalEntities.push(
+                        ["PRO", 2 - 0.8 * (2 - index), angle,
+                            ["TRI", initialX + 80, y, radius, 0, 1.2, 0]]
 
-        var startX = 1000;
-        var angles = [180, 225, 270];
-        angle.forEach(function(angle) {
-            totalEntities.push(
-                ["PRO", 2, angle,
-                    ["TRI", startX, 20, 20, 50, angle, 2, 0]]
-            );
-        });
+                    );
+                } else {
+                    totalEntities.push(
+                        ["PRO", 2 + 0.7 * (2 - index), angle,
+                            ["TRI", initialX, y, radius, 0, 1.2, 0]]
+
+                    );
+                }
+            });
+            return construct;
+        };
+
+        
+
         // /******** Intro, and main motiff along the game **********/
         // var motiff = function(initialX, reverse) {
         //     var speed = motiffSpeed;
@@ -42,11 +59,15 @@
         // };
         // /*******/
 
-        // for(i = 0; i < 8; i++) {
-        //     totalEntities = totalEntities.concat(
-        //         motiff(startX + (4 * i * beat * motiffSpeed), i % 2 !== 0)
-        //     );
-        // }
+        for(i = 0; i < 4; i++) {
+            totalEntities = totalEntities.concat(
+                motiff(
+                    startX + (4 * i * beat),
+                    i % 2 === 0
+                )
+            );
+        }
+        console.log("PIANO LOADED", totalEntities);
         return totalEntities;
 
     })()

@@ -175,7 +175,7 @@
             var levels = {};
             var whole = 58;
             levels[1] = 'nothing_to_fear/motif.js';
-            levels[2] = 'nothing_to_fear/drums.js'
+            // levels[2] = 'nothing_to_fear/piano.js'
             levels[whole * 4] = 'nothing_to_fear/motif_rev.js';
 
             // Start drums
@@ -189,9 +189,11 @@
 
             // Starts piano 16
             // levels[whole * 16] = 'nothing_to_fear/motif.js';
-            levels[whole * 16 + 1] = 'nothing_to_fear/drums.js';
+            // levels[whole * 16 + 1] = 'nothing_to_fear/drums.js';
             // levels[whole * 20] = 'nothing_to_fear/motif_rev.js';
-            // levels[whole * 16 - 1] = 'nothing_to_fear/piano.js'
+            levels[whole * 16 - 1] = 'nothing_to_fear/piano.js'
+            levels[whole * 24 - 1] = 'nothing_to_fear/piano.js'
+
 
             // levels[57 * 2] = 'nothing_to_fear/motif.js';
             console.log("Levels", levels);
