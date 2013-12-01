@@ -21,6 +21,12 @@ Up and down for moving. Right for dashing. Left for *changing* color.
 
 Nothing to Fear - Dexter Britain. https://soundcloud.com/dexterbritain/nothing-to-fear (CC)
 
+## Libraries
+Technologies and libraries used:
+SoundJS http://www.createjs.com/#!/SoundJS
+Neon Js https://github.com/azendal/neon
+Chameleon https://github.com/sgarza/Chameleon
+
 ## Future development
 
 Levels can be created as json or javascript files, so more songs are in the progress!
