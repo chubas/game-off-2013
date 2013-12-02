@@ -1,3 +1,0 @@
-GAME SPECS
-
-The game has the posibility to become a very good mobile game, simplifying the controls to just left, right (or up, down if played horizontally), and action and dash.
