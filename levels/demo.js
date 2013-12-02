@@ -27,7 +27,7 @@
                 initialPosition = Math.abs(((i / 4) % 2) - 1);
 
                 snakeBlocks.push([
-                    'SWI', 4, swingerHeight, 90, initialPosition,
+                    'SWI', 2, swingerHeight, 90, initialPosition,
                     [
                         'REC',
                         x,
@@ -44,12 +44,13 @@
         };
         var x = 800;
         var nextX = x + (segments * (blockWidth + blockSpacing) + snakeSpacing);
+        var middleHeight = swingerHeight / 2;
         var snakesCoords = [
-            [x, 100],
-            [x, 400],
-            [nextX, 250],
-            [nextX, -swingerHeight / 2],
-            [nextX, 500 + (swingerHeight / 2)]
+            [x, 100 - middleHeight],
+            [x, 400 - middleHeight],
+            [nextX, 250 - middleHeight],
+            [nextX, 0 - middleHeight],
+            [nextX, 500 - middleHeight]
         ];
         snakesCoords.forEach(function(pair) {
             totalEntities = totalEntities.concat(createSnake(pair));

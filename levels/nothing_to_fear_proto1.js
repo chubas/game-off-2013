@@ -62,7 +62,7 @@
                     motiff(startX + (4 * i * beat * motiffSpeed), i % 2 !== 0)
                 );
             }
-        }
+        };
         motiffLoop(0);
         motiffLoop(8);
         motiffLoop(16);
